@@ -11,7 +11,7 @@ schema:
     - luna_pinyin
   description: |
     This is the kunyomi input method for rime.
-    This schema uses OpenCC to convert the characters to Japanese style. Please put JPVariants.ocd and t2jp.json in the opencc folder in advance.
+    This schema uses OpenCC to convert the characters to Japanese style. Please put JPVariants.txt and t2jp.json in the opencc folder in advance.
 
 switches:
   - name: ascii_mode
