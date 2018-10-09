@@ -2,7 +2,19 @@
 
 日本語訓読みをRimeで入力
 
-This schema uses OpenCC to convert the characters to Japanese style. Please put JPVariants.txt and t2jp.json in the opencc folder in advance.
+This schema uses OpenCC to convert the characters to Japanese style. Please put `JPVariants.txt` and `t2jp.json` in the `opencc` folder in advance.
+
+(1) Input Chinese by kunyomi
+
+![demo1](demo/1.png)
+
+(2) Input Jukujikun
+
+![demo2](demo/2.png)
+
+(3) Reverse lookup kunyomi by Chinese pinyin
+
+![demo3](demo/3.png)
 
 Acknowledgements:
 
