@@ -3,7 +3,7 @@
 
 ---
 name: kunyomi
-version: "20181009 V1.0.03"
+version: "20181009 V1.0.04"
 sort: by_weight
 use_preset_vocabulary: true
 ...
@@ -49,8 +49,8 @@ use_preset_vocabulary: true
 榔楡	あきにれ
 商人	あきんど
 灰汁	あく
-缺伸	あくび
-缺	あくび
+欠伸	あくび
+欠	あくび
 胡座	あぐら
 胡坐	あぐら
 趺坐	あぐら
