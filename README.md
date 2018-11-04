@@ -21,4 +21,4 @@ Acknowledgements:
 * 熟字訓 - From https://www.kanjipedia.jp/sakuin/jyukujikun_ateji/%E3%81%82 (Date: 20181007)
 * 旧字体・新字体変換 http://www.geocities.jp/qjitai/
 * Single character - From https://kanji.jitenon.jp/
-* JPVariants.txt - From mrhso https://github.com/mrhso/OpenCC/blob/dictionary/data/dictionary/JPVariants.txt
+* JPVariants.txt - From mrhso https://github.com/mrhso/OpenCC/blob/baadeda12d8ae945a26e5c8dd7010fea1012a2ef/data/dictionary/JPVariants.txt
