@@ -1,8 +1,8 @@
 # rime-kunyomi
 
-日本語訓読みをRimeで入力
+Input Japanese Kunyomi with Rime / 日本語訓読みをRimeで入力
 
-This schema uses OpenCC to convert the characters to Japanese style. Please put `JPVariants.txt` and `t2jp.json` in the `opencc` folder in advance.
+The schema uses OpenCC to support the conversion between Kyūjitai and Shinjitai. Please put `JPVariants.txt` and `t2jp.json` in the `opencc` folder when configuring.
 
 (1) Input Chinese by kunyomi
 
