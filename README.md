@@ -1,8 +1,10 @@
 # rime-kunyomi
 
-Input Japanese Kunyomi with Rime / 日本語訓読みをRimeで入力
+_Input Chinese words by Japanese Kunyomi with Rime / Rimeとともに中国語単語を日本語訓読みで入力_
 
 The schema uses OpenCC to support the conversion between Kyūjitai and Shinjitai. Please put `JPVariants.txt` and `t2jp.json` in the `opencc` folder when configuring.
+
+## Features
 
 (1) Input Chinese by kunyomi
 
@@ -16,7 +18,11 @@ The schema uses OpenCC to support the conversion between Kyūjitai and Shinjitai
 
 ![demo3](demo/3.png)
 
-Acknowledgements:
+(4) Other features like acronym and Simplified Chinese
+
+![demo4](demo/4.png)
+
+## Acknowledgements
 
 * [熟字訓・当て字索引](https://www.kanjipedia.jp/sakuin/jyukujikun_ateji/%E3%81%82) - Data source of Jukujikun (Date: 20181007)
 * [旧字体・新字体変換](http://www.geocities.jp/qjitai/) - Convert Jukujikun to Kyūjitai for consistency in data file
