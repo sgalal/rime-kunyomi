@@ -28,3 +28,7 @@ The schema uses OpenCC to support the conversion between Kyūjitai and Shinjitai
 * [旧字体・新字体変換](http://www.geocities.jp/qjitai/) - Convert Jukujikun to Kyūjitai for consistency in data file
 * [漢字辞典オンライン](https://kanji.jitenon.jp/) - Data source of single characters
 * [JPVariants.txt](https://github.com/mrhso/OpenCC/blob/baadeda12d8ae945a26e5c8dd7010fea1012a2ef/data/dictionary/JPVariants.txt) - IME support for conversion between Kyūjitai and Shinjitai
+
+## Similar Projects
+
+* [rime-hanja](https://github.com/sgalal/rime-hanja): Input Chinese characters by Korean pronunciation
