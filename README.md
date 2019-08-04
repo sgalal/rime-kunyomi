@@ -2,7 +2,7 @@
 
 _Input Chinese words by Japanese Kunyomi with Rime / Rimeとともに中国語単語を日本語訓読みで入力_
 
-The schema uses OpenCC to support the conversion between Kyūjitai and Shinjitai. Please put `JPVariants.txt` and `t2jp.json` in the `opencc` folder when configuring.
+The schema uses OpenCC to support the conversion between Kyūjitai and Shinjitai. Please put `JPVariants.txt` and `t2jp.json` in the `opencc` folder in advance.
 
 ## Features
 
@@ -31,4 +31,4 @@ The schema uses OpenCC to support the conversion between Kyūjitai and Shinjitai
 
 ## Similar Projects
 
-* [rime-hanja](https://github.com/sgalal/rime-hanja): Input Chinese characters by Korean pronunciation
+* [rime-hanja](https://github.com/sgalal/rime-hanja): Input Chinese words by Korean pronunciation
