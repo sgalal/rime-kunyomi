@@ -1,0 +1,189 @@
+# Rime schema
+# encoding: utf-8
+
+# Derived from previous "sym.schema.yaml V1.2.12"
+#
+# Update log:
+# 1.3.0: 増加模糊音 "derive/ti/chi/"。同時，為避免可能存在的名称衝突，schema_id 従 kana 改為 swiftkana。
+# 1.4.0: 修改自述。
+# 1.4.1: 修改部分 YAML 寫法
+
+schema:
+  schema_id: swiftkana
+  name: スイフトカナ
+  version: "1.4.1"
+  author:
+    - 其弦有余 <1727246457@qq.com>
+  description: |-
+    スイフトカナ（Swift Kana）快速假名輸入方案。
+    本方案使用 OpenCC 進行平假名/片假名轉換，使用前請將 hirakata.ocd 和 hira2kata.json 兩個文件置於 opencc 文件夾中。
+    為使輸入時無需選字，撥音 ん 使用 nnn 輸入，以免出現諸如 nna 既表示 っな，又表示 んあ 的情況。
+
+switches:
+  - name: ascii_mode
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: ascii_punct
+    states: [ ，。, ，． ]
+  - name: simplification
+    states: [ ひら, カタ ]
+
+engine:
+  processors:
+    - ascii_composer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+  filters:
+    - simplifier
+
+speller:
+  alphabet: abcdefghijklmnopqrstuvwxyz-
+  delimiter: " '"
+  auto_select: true
+  algebra:
+    # 普通假名转换
+    - xform/あ/a/
+    - xform/い/i/
+    - xform/う/u/
+    - xform/え/e/
+    - xform/お/o/
+    - xform/か/ka/
+    - xform/き/ki/
+    - xform/く/ku/
+    - xform/け/ke/
+    - xform/こ/ko/
+    - xform/さ/sa/
+    - xform/し/si/
+    - xform/す/su/
+    - xform/せ/se/
+    - xform/そ/so/
+    - xform/た/ta/
+    - xform/ち/ti/
+    - xform/つ/tsu/  # tu
+    - xform/て/te/
+    - xform/と/to/
+    - xform/な/na/
+    - xform/に/ni/
+    - xform/ぬ/nu/
+    - xform/ね/ne/
+    - xform/の/no/
+    - xform/は/ha/
+    - xform/ひ/hi/
+    - xform/ふ/fu/  # hu
+    - xform/へ/he/
+    - xform/ほ/ho/
+    - xform/ま/ma/
+    - xform/み/mi/
+    - xform/む/mu/
+    - xform/め/me/
+    - xform/も/mo/
+    - xform/や/ya/
+    - xform/ゆ/yu/
+    - xform/よ/yo/
+    - xform/ら/ra/
+    - xform/り/ri/
+    - xform/る/ru/
+    - xform/れ/re/
+    - xform/ろ/ro/
+    - xform/わ/wa/
+    - xform/ゐ/wi/
+    - xform/ゑ/we/
+    - xform/を/wo/
+    - xform/ぱ/pa/
+    - xform/ぴ/pi/
+    - xform/ぷ/pu/
+    - xform/ぺ/pe/
+    - xform/ぽ/po/
+    - xform/が/ga/
+    - xform/ぎ/gi/
+    - xform/ぐ/gu/
+    - xform/げ/ge/
+    - xform/ご/go/
+    - xform/ざ/za/
+    - xform/じ/zi/
+    - xform/ず/zu/
+    - xform/ぜ/ze/
+    - xform/ぞ/zo/
+    - xform/だ/da/
+    - xform/ぢ/di/
+    - xform/づ/du/
+    - xform/で/de/
+    - xform/ど/do/
+    - xform/ば/ba/
+    - xform/び/bi/
+    - xform/ぶ/bu/
+    - xform/べ/be/
+    - xform/ぼ/bo/
+    - xform/ゔ/vu/
+    # 特殊假名
+    - xform/ゃ/lya/
+    - xform/ゅ/lyu/
+    - xform/ょ/lyo/
+    - xform/ゎ/lwa/
+    - xform/っ/ltu/
+    - xform/ぁ/la/
+    - xform/ぃ/li/
+    - xform/ぇ/le/
+    - xform/ぉ/lo/
+    - xform/ん/nnn/  # nn
+    # 特殊假名处理
+    - xform/[aiueo]ly/y/
+    - xform/[aiueo]lw/w/
+    - xform/ltu([a-z])/$1$1/
+    - xform/[aiueo]l([aiueo])/$1/
+    # 兼容其他拼写方式
+    - derive/di/dzi/
+    - derive/fu$/hu/  # fu
+    - derive/ti/tci/
+    - derive/ti/chi/
+    - derive/tsu/tu/  # tsu
+    - derive/si/shi/
+    - derive/zi/ji/
+    - derive/zy([auo])/j$1/
+    - derive/sy([auo])/sh$1/
+#    - derive/^nnn$/nn/
+#    - derive/^nn$/n/
+    - derive/k/c/
+    - derive/k/q/
+    - derive/l/x/
+    # 长音符号
+    - xform/ー/-/
+
+translator:
+  dictionary: swiftkana
+  enable_completion: false  # 若此處有效，則要去掉 speller/algebra 的 derive/^nnn$/nn/ 和 derive/^nn$/n/
+  enable_user_dict: false
+
+punctuator:
+  import_preset: default
+  # 以下修改减号键为长音符号 ー，
+  # 在按减号键出字时保证候选唯一，加快打字速度。
+  # 在词典文件中亦定义了该符号（ー），
+  # 是为了避免外部调用词典文件时需要重复修改 punctuator。
+  # 通过 uniquifier 可以保证候选的唯一性。
+  full_shape:
+    "-": "ー"
+  half_shape:
+    "-": "ー"
+
+key_binder:
+  import_preset: default
+
+simplifier:
+  option_name: simplification
+  opencc_config: hira2kata.json
+  tags: [ abc ]
