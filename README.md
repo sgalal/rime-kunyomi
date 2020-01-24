@@ -29,7 +29,6 @@ Download link: [`JPVariants.txt`](https://raw.githubusercontent.com/BYVoid/OpenC
 * [熟字訓・当て字索引](https://www.kanjipedia.jp/sakuin/jyukujikun_ateji/%E3%81%82) - Data source of Jukujikun (Date: 20181007)
 * [旧字体・新字体変換](http://www.geocities.jp/qjitai/) - Convert Jukujikun to Kyūjitai for consistency in data file
 * [漢字辞典オンライン](https://kanji.jitenon.jp/) - Data source of single characters
-* [JPVariants.txt](https://github.com/mrhso/OpenCC/blob/baadeda12d8ae945a26e5c8dd7010fea1012a2ef/data/dictionary/JPVariants.txt) - IME support for conversion between Kyūjitai and Shinjitai
 
 ## Similar Projects
 
