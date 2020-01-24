@@ -1,15 +1,15 @@
-﻿# Rime schema
+# Rime schema
 # encoding: utf-8
 
 schema:
   schema_id: kunyomi
   name: "訓読み"
-  version: "20181007 V1.0.01"
+  version: "V1.0.1-20200124"
   author:
-    - "其弦有余 <1727246457@qq.com>"
+    - 其弦有余 <1727246457@qq.com>
   dependencies:
     - luna_pinyin
-  description: |
+  description: |-
     This is the kunyomi input method for rime.
     This schema uses OpenCC to convert the characters to Japanese style. Please put JPVariants.txt and t2jp.json in the opencc folder in advance.
 
@@ -18,10 +18,9 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-  - options: [ noop, simplification, t2jp_simplification ]
+  - options: [ noop, simp_cn, simp_jp ]
     states: [ 漢體, 汉体, 和体 ]
-  - options: [ _key_grave ]
-    states: [ 反查 ]
+    reset: 2
 
 engine:
   processors:
@@ -36,7 +35,7 @@ engine:
   segmentors:
     - ascii_segmentor
     - matcher
-    - "affix_segmentor@luna_pinyin"
+    - affix_segmentor@luna_pinyin
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
@@ -44,12 +43,12 @@ engine:
     - echo_translator
     - punct_translator
     - script_translator
-    - "script_translator@luna_pinyin"  # the luna_pinyin translator, for reverse lookup
+    - script_translator@luna_pinyin
   filters:
-    - simplifier
-    - "simplifier@t2jp_simplifier"
+    - simplifier@simp_cn
+    - simplifier@simp_jp
     - uniquifier
-    - "reverse_lookup_filter@luna_pinyin_reverse_lookup"
+    - reverse_lookup_filter@reverse_lookup
 
 speller:
   alphabet: "abcdefghijklmnopqrstuvwxyz"
@@ -173,32 +172,30 @@ translator:
     - xform/&//
 
 luna_pinyin:
+  tag: luna_pinyin
   dictionary: luna_pinyin
   prefix: "`"
   suffix: ";"
-  tag: luna_pinyin
+  tips: 〔拼音〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
 
-luna_pinyin_reverse_lookup:
-  dictionary: kunyomi
-  #preedit_format:
-  #  - "xform/([nl])v/$1ü/"
-  #  - "xform/([nl])ue/$1üe/"
-  #  - "xform/([jqxy])v/$1u/"
-  comment_format:
-    - xform/&//
-  overwrite_comment: true
+reverse_lookup:
   tags: [ luna_pinyin ]
+  overwrite_comment: false
+  dictionary: kunyomi
+  comment_format:
+    - xform/&/-/
+  
+simp_cn:
+  option_name: simp_cn
+  opencc_config: t2s.json
 
-simplifier:
-  import_preset: default
-  option_name: simplification  # universal interface, functions in trime keyboard
-  tags: &simp_tags
-    [ abc, luna_pinyin ]  # effective for both main translator and luna_pinyin translator
-
-t2jp_simplifier:
-  option_name: t2jp_simplification
+simp_jp:
+  option_name: simp_jp
   opencc_config: t2jp.json
-  tags: *simp_tags
 
 punctuator:
   import_preset: default

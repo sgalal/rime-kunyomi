@@ -1,8 +1,10 @@
 # rime-kunyomi
 
-_Input Chinese words by Japanese Kunyomi with Rime / Rimeとともに中国語単語を日本語訓読みで入力_
+Input Chinese words by Japanese Kunyomi with Rime | Rimeとともに中国語単語を日本語訓読みで入力
 
 The schema uses OpenCC to support the conversion between Kyūjitai and Shinjitai. Please put `JPVariants.txt` and `t2jp.json` in the `opencc` folder in advance.
+
+Download link: [`JPVariants.txt`](https://raw.githubusercontent.com/BYVoid/OpenCC/master/data/dictionary/JPVariants.txt), [`t2jp.json`](https://raw.githubusercontent.com/BYVoid/OpenCC/master/data/config/t2jp.json)
 
 ## Features
 
