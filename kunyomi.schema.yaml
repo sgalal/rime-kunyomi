@@ -3,10 +3,10 @@
 
 schema:
   schema_id: kunyomi
-  name: "訓読み"
-  version: "V1.0.1-20200124"
+  name: 訓読み
+  version: "2020.04.12"
   author:
-    - 其弦有余 <1727246457@qq.com>
+    - "Ayaka Mikazuki <ayaka@mail.shn.hk>"
   dependencies:
     - luna_pinyin
   description: |-
@@ -18,7 +18,7 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-  - options: [ noop, simp_cn, simp_jp ]
+  - options: [ noop, simplification, simp_jp ]
     states: [ 漢體, 汉体, 和体 ]
     reset: 2
 
@@ -45,13 +45,13 @@ engine:
     - script_translator
     - script_translator@luna_pinyin
   filters:
-    - simplifier@simp_cn
+    - simplifier
     - simplifier@simp_jp
     - uniquifier
-    - reverse_lookup_filter@reverse_lookup
+    - reverse_lookup_filter
 
 speller:
-  alphabet: "abcdefghijklmnopqrstuvwxyz"
+  alphabet: abcdefghijklmnopqrstuvwxyz
   delimiter: " '"
   algebra:
     - derive/^([^&]+)&.+$/$1/
@@ -188,10 +188,6 @@ reverse_lookup:
   dictionary: kunyomi
   comment_format:
     - xform/&/-/
-  
-simp_cn:
-  option_name: simp_cn
-  opencc_config: t2s.json
 
 simp_jp:
   option_name: simp_jp
