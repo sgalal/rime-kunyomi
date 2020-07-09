@@ -11,9 +11,9 @@
 schema:
   schema_id: swiftkana
   name: スイフトカナ
-  version: "1.4.1"
+  version: "1.4.2"
   author:
-    - 其弦有余 <1727246457@qq.com>
+    - sgalal <sgalal.me@outlook.com>
   description: |-
     スイフトカナ（Swift Kana）快速假名輸入方案。
     本方案使用 OpenCC 進行平假名/片假名轉換，使用前請將 hirakata.ocd 和 hira2kata.json 兩個文件置於 opencc 文件夾中。
